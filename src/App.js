@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import * as counterActions from './modules/counter';
 
 
 class App extends Component {
+    componentDidMount() {
+        axios.get('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => console.log(response.data));
+    }
+
     render() {
         const { CounterActions, number } = this.props;
 
